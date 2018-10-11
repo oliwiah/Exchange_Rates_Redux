@@ -29,7 +29,7 @@ class CurrencyBtn extends React.Component {
             <div className="btn">
                 <p>Currency</p>
                 <select onChange={this.handleChange} value={this.props.chosenCurrency}>
-                    <option value="" disabled defaultValue hidden>Select</option>
+                    <option value="" disable selected hidden>Select</option>
                     {this.props.ratesTable.map(singleCurrency => <option key={singleCurrency.code + singleCurrency.ask + singleCurrency.bid} 
                         value={singleCurrency.code}> 
                             {singleCurrency.code} 
