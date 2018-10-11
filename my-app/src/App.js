@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk'
 import './App.css';
@@ -10,7 +10,8 @@ import {
 } from 'react-router-dom';
 import appReducer from './store/Reducer';
 
-const store = createStore(appReducer, applyMiddleware(thunk));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(appReducer, composeEnhancers(applyMiddleware(thunk))); 
 
 class App extends Component {
     render() {
